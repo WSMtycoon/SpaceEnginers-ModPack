@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <CubeBlocks>
+        <Definition>
+            <Id>
+                <TypeId>Conveyor</TypeId>
+                <SubtypeId>Conveyor4WayDuct</SubtypeId>
+            </Id>
+            <DisplayName>Conveyor 4 Way Duct</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Rein4Way.png</Icon>
+            <Description>Description_ConveyorTube</Description>
+            <GuiVisible>true</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\Rein4Way.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="12" />
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="24" />
+                <Component Subtype="SmallTube" Count="14" />
+                <Component Subtype="Motor" Count="6" />
+                <Component Subtype="InteriorPlate" Count="6" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="Motor" Index="0" />
+            <BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\large\Rein4Way_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.67" File="Models\Cubes\large\Rein4Way_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\large\Rein4Way_BS3.mwm"/>
+            </BuildProgressModels>
+            <BlockPairName>Conveyor4WayDuct</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+            </MountPoints>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+            <DestroySound>PoofExplosionCat3</DestroySound>
+            <PCU>10</PCU>
+        </Definition>	
+		
+        <Definition>
+            <Id>
+                <TypeId>Conveyor</TypeId>
+                <SubtypeId>ConveyorElbowDuct</SubtypeId>
+            </Id>
+            <DisplayName>Conveyor Elbow Duct</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Rein3way.png</Icon>
+            <Description>Description_ConveyorTube</Description>
+            <GuiVisible>true</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\large\Rein3way.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="12" />
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="24" />
+                <Component Subtype="SmallTube" Count="14" />
+                <Component Subtype="Motor" Count="6" />
+                <Component Subtype="InteriorPlate" Count="6" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="Motor" Index="0" />
+            <BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\large\Rein3way_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.67" File="Models\Cubes\large\Rein3way_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\large\Rein3way_BS3.mwm"/>
+            </BuildProgressModels>
+            <BlockPairName>ConveyorElbowDuct</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+            </MountPoints>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+            <DestroySound>PoofExplosionCat3</DestroySound>
+            <PCU>10</PCU>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>Conveyor</TypeId>
+                <SubtypeId>Conveyor4WayAltDuct</SubtypeId>
+            </Id>
+            <DisplayName>Conveyor 4 Way Alt Duct</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Rein4wayAlt.png</Icon>
+            <Description>Description_ConveyorTube</Description>
+            <GuiVisible>true</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\large\Rein4wayAlt.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="12" />
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="24" />
+                <Component Subtype="SmallTube" Count="14" />
+                <Component Subtype="Motor" Count="6" />
+                <Component Subtype="InteriorPlate" Count="6" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="Motor" Index="0" />
+            <BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\large\Rein4wayAlt_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.67" File="Models\Cubes\large\Rein4wayAlt_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\large\Rein4wayAlt_BS3.mwm"/>
+            </BuildProgressModels>
+            <BlockPairName>Conveyor4WayAltDuct</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+            </MountPoints>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+            <DestroySound>PoofExplosionCat3</DestroySound>
+            <PCU>10</PCU>
+        </Definition>	
+		
+        <Definition>
+            <Id>
+                <TypeId>Conveyor</TypeId>
+                <SubtypeId>Conveyor5WayDuct</SubtypeId>
+            </Id>
+            <DisplayName>Conveyor 5 Way Duct</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Rein5way.png</Icon>
+            <Description>Description_ConveyorTube</Description>
+            <GuiVisible>true</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\large\Rein5way.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="12" />
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="24" />
+                <Component Subtype="SmallTube" Count="14" />
+                <Component Subtype="Motor" Count="6" />
+                <Component Subtype="InteriorPlate" Count="6" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="Motor" Index="0" />
+            <BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\large\Rein5way_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.67" File="Models\Cubes\large\Rein5way_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\large\Rein5way_BS3.mwm"/>
+            </BuildProgressModels>
+            <BlockPairName>Conveyor5WayDuct</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
+            </MountPoints>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+            <DestroySound>PoofExplosionCat3</DestroySound>
+            <PCU>10</PCU>
+        </Definition>			
+		
+    </CubeBlocks>
+</Definitions>
+
