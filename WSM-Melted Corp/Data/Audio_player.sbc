@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Sounds>
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>PickGrid</SubtypeId>
+      </Id>
+      <Category>ITEM</Category>
+      <MaxDistance>30</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>0.5</Volume>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\Pick.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+  </Sounds>
+</Definitions>
