@@ -10,16 +10,13 @@ namespace PickUpMod.PickUpMod
 
         [ProtoMember(1)]
         public Vector3 DesiredPos { get; private set; }
-
         [ProtoMember(2)]
         public Vector3 Translation { get; private set; }
-
         [ProtoMember(3)]
         public Vector3 Foward { get; private set; }
-
         [ProtoMember(4)]
         public long GridId { get; private set; }
-		
+	
         [ProtoMember(5)]
         public Vector3 Rotation { get; private set; }
         [ProtoMember(6)]

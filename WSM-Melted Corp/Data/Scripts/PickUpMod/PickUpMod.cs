@@ -27,9 +27,21 @@ namespace PickUpMod.PickUpMod
         private float distance;
         private int delay;
         private int delay2;
-        private float oldscroll = 0f;
         private float scroll = 0f;
 		private float angel = 0.02f;
+
+		protected static readonly MyStringId[] m_rotationControls = new MyStringId[]
+        {
+            MyControlsSpace.CUBE_ROTATE_VERTICAL_POSITIVE,
+            MyControlsSpace.CUBE_ROTATE_VERTICAL_NEGATIVE,
+            MyControlsSpace.CUBE_ROTATE_HORISONTAL_POSITIVE,
+            MyControlsSpace.CUBE_ROTATE_HORISONTAL_NEGATIVE,
+            MyControlsSpace.CUBE_ROTATE_ROLL_POSITIVE,
+            MyControlsSpace.CUBE_ROTATE_ROLL_NEGATIVE,
+        };
+
+		protected static readonly int[] m_rotationDirections = new int[6] { -1, 1, 1, -1, 1, -1 };
+
         public override void Init(MyObjectBuilder_SessionComponent sessionComponent)
         {
             MyNetworkHandler.Init();
@@ -47,12 +59,10 @@ namespace PickUpMod.PickUpMod
                 MyAPIGateway.Session.Player?.Controller?.ControlledEntity?.Entity is IMyCharacter)
             {
                 IMyCharacter character = MyAPIGateway.Session.Player?.Controller?.ControlledEntity?.Entity as IMyCharacter;
-
                 if (character.EquippedTool != null)
                 {
                     return;
                 }
-
                 if (delay != 0)
                 {
                     delay--;
@@ -71,7 +81,6 @@ namespace PickUpMod.PickUpMod
                     else
                     {
                         IHitInfo hit;
-
                         MyAPIGateway.Physics.CastRay(mat.Translation, mat.Translation + mat.Forward * 4, out hit);
                         if (hit != null && hit.HitEntity != null && hit.HitEntity is IMyCubeGrid)
                         {
@@ -82,17 +91,23 @@ namespace PickUpMod.PickUpMod
                             mass = (float)(mass * 9.8) * (grid as MyCubeGrid).GetCurrentMass();
                             if (grid.GridSizeEnum == MyCubeSize.Small && !grid.IsStatic && mass <= MAX_OBJECT_MASS && mass < MAX_OBJECT_MASS * 2)
                             {
-
                                 IMySlimBlock block = grid.GetCubeBlock(grid.WorldToGridInteger(hit.Position + (hit.Normal * .01f)));
                                 if (block != null && block.FatBlock != null && block.FatBlock is IMyButtonPanel)
                                 {
                                     return;
                                 }
-
                                 held = grid;
                                 gridForward = grid.WorldMatrix.Backward;
-                                hitPos = Vector3.Transform(hit.Position, held.PositionComp.WorldMatrixNormalizedInv);
-                                distance = (float)(mat.Translation - hit.Position).Length();
+                                
+                                // Смещаем точку захвата в центр масс объекта
+                                MyEntity gridEnt = grid as MyEntity;
+                                Vector3D centerOfMassWorld = gridEnt.Physics.CenterOfMassWorld;
+                                // Преобразуем центр масс в локальные координаты объекта
+                                // В локальных координатах центр масс должен быть близок к (0,0,0)
+                                hitPos = Vector3.Transform(centerOfMassWorld, held.PositionComp.WorldMatrixNormalizedInv);
+                                
+                                // Вычисляем расстояние от камеры до центра масс
+                                distance = (float)(mat.Translation - centerOfMassWorld).Length();
                                 MyVisualScriptLogicProvider.SetHighlightLocal(held.Name, 20, 0, Color.Yellow * .1f);
                                 MyVisualScriptLogicProvider.PlaySingleSoundAtPosition("PickGrid", (Vector3)MyAPIGateway.Session.Player.GetPosition());
                                 //MyVisualScriptLogicProvider.ShowNotification(held.DisplayName, 2000, "Green", MyAPIGateway.Session.Player.IdentityId);
@@ -109,12 +124,10 @@ namespace PickUpMod.PickUpMod
                     else
                     {
                         IHitInfo hit;
-
                         MyAPIGateway.Physics.CastRay(mat.Translation, mat.Translation + mat.Forward * 4, out hit);
                         if (hit != null && hit.HitEntity != null && hit.HitEntity is IMyCubeGrid)
                         {
                             IMyCubeGrid grid = hit.HitEntity as IMyCubeGrid;
-
                             float mass;
                             MyAPIGateway.Physics.CalculateNaturalGravityAt(grid.PositionComp.GetPosition(), out mass);
                             mass = Math.Max(1, mass);
@@ -126,7 +139,6 @@ namespace PickUpMod.PickUpMod
                                 {
                                     return;
                                 }
-
                                 heldToView = grid;
                                 gridForward = grid.WorldMatrix.Backward;
                                 hitPos = Vector3.Transform(hit.Position, heldToView.PositionComp.WorldMatrixNormalizedInv);
@@ -155,82 +167,108 @@ namespace PickUpMod.PickUpMod
 
                     MatrixD m = held.WorldMatrix;
 
-                    Vector3 transformedOff = Vector3.Transform(hitPos, held.WorldMatrix) - m.Translation;
-                    Vector3 desiredPos = mat.Translation + (mat.Forward * distance);
-                    Vector3 currentPos = m.Translation + transformedOff;
+                    // Получаем актуальный центр масс объекта (обновляется каждый кадр)
+                    Vector3D currentCenterOfMass = heldEnt.Physics.CenterOfMassWorld;
+                    
+                    // Желаемая позиция - центр перекрестья на экране (центр экрана игрока)
+                    Vector3D desiredPos = mat.Translation + (mat.Forward * distance);
+                    
+                    // Текущая позиция центра масс объекта
+                    Vector3D currentPos = currentCenterOfMass;
 
                    // Utils.DrawDebugLineDirect(desiredPos, currentPos, 0, 0, 0);
 
-                    if ((desiredPos - currentPos).LengthSquared() > 50)
+                    // Проверяем расстояние между центром масс и желаемой позицией
+                    if (Vector3D.DistanceSquared(desiredPos, currentPos) > 50)
                     {
                         MyVisualScriptLogicProvider.SetHighlightLocal(held.Name, 0, 0, Color.Yellow * .1f);
                         held = null;
                         return;
                     }
 
-                    Utils.AddForceTowards(heldEnt, currentPos, desiredPos, gridForward);
+                    // Используем матрицу камеры для определения осей вращения
+                    Vector3 localRight = m.Right; // Ось горизонтального вращения (влево/вправо)
+                    Vector3 localUp = m.Up;  // Ось вертикального вращения (вверх/вниз)
+                    Vector3 localForward = m.Forward; // Ось крена (roll)
+                    
+                    // Убеждаемся, что центр масс актуален (обновляется каждый кадр)
+                    // AngularVelocity автоматически вращает вокруг текущего центра масс
+                    Vector3D centerOfMass = heldEnt.Physics.CenterOfMassWorld;
+
+                    // Определяем угловую скорость для ручного вращения
+                    // Используем кнопки из настроек панели управления
+                    Vector3 targetAngularVelocity = Vector3.Zero;
+                    bool hasManualRotation = false;
 
 
-
-                    if (MyAPIGateway.Input.IsKeyPress(VRage.Input.MyKeys.Insert)){
+					if (MyAPIGateway.Input.IsKeyPress(VRage.Input.MyKeys.Insert)){
                         scroll = scroll + angel;
-                        heldEnt.Physics.AngularVelocity = new Vector3(scroll, 0, 0);
+                        hasManualRotation = true;
+                        // Вращение вокруг локальной оси X (Right) относительно центра объекта
+                        targetAngularVelocity = localRight * scroll;
                     }
                     else if (MyAPIGateway.Input.IsKeyPress(VRage.Input.MyKeys.PageUp)){
                         scroll = scroll - angel;
-                        heldEnt.Physics.AngularVelocity = new Vector3(scroll, 0, 0);
+                        hasManualRotation = true;
+                        // Вращение вокруг локальной оси X (Right) относительно центра объекта
+                        targetAngularVelocity = localRight * scroll;
                     }
-
                     else if (MyAPIGateway.Input.IsKeyPress(VRage.Input.MyKeys.Delete)){
                         scroll = scroll + angel;
-                        heldEnt.Physics.AngularVelocity = new Vector3(0, 0, scroll);
+                        hasManualRotation = true;
+                        // Вращение вокруг локальной оси Z (Forward) относительно центра объекта
+                        targetAngularVelocity = localForward * scroll;
                     }
                     else if (MyAPIGateway.Input.IsKeyPress(VRage.Input.MyKeys.PageDown)){
                         scroll = scroll - angel;
-                        heldEnt.Physics.AngularVelocity = new Vector3(0, 0, scroll);
+                        hasManualRotation = true;
+                        // Вращение вокруг локальной оси Z (Forward) относительно центра объекта
+                        targetAngularVelocity = localForward * scroll;
                     }
-
 					else if (MyAPIGateway.Input.IsKeyPress(VRage.Input.MyKeys.End)){
                         scroll = scroll + angel;
-                        heldEnt.Physics.AngularVelocity = new Vector3(0, scroll, 0);
+                        hasManualRotation = true;
+                        // Вращение вокруг локальной оси Y (Up) относительно центра объекта
+                        targetAngularVelocity = localUp * scroll;
                     }
                     else if (MyAPIGateway.Input.IsKeyPress(VRage.Input.MyKeys.Home)){
                         scroll = scroll - angel;
-                        heldEnt.Physics.AngularVelocity = new Vector3(0, scroll, 0);
+                        hasManualRotation = true;
+                        // Вращение вокруг локальной оси Y (Up) относительно центра объекта
+                        targetAngularVelocity = localUp * scroll;
                     }
 
+                    // Если нет ручного вращения, полностью сбрасываем scroll
+                    if (!hasManualRotation)
+                    {
+                        scroll = 0;
+                        targetAngularVelocity = Vector3.Zero;
+                    }
+
+                    // Применяем силу для линейного движения через Utils.AddForceTowards
+                    // Центр масс объекта стремится к центру перекрестья на экране
+                    // Передаем true, чтобы сохранить наше ручное вращение
+                    Utils.AddForceTowards(heldEnt, (Vector3)currentPos, (Vector3)desiredPos, gridForward, true);
+
+                    // Устанавливаем угловую скорость для вращения вокруг центра масс
+                    // AngularVelocity в Space Engineers автоматически вращает объект вокруг центра масс
+                    // Вращение происходит относительно локальных осей объекта
+                    // Если нет ручного вращения, полностью останавливаем вращение
+                    if (targetAngularVelocity.LengthSquared() > 0.0001f)
+                    {
+                        heldEnt.Physics.AngularVelocity = targetAngularVelocity;
+                    }
                     else
                     {
-                       this.scroll = ((MyAPIGateway.Input.DeltaMouseScrollWheelValue() / 100) % 50)*6;
-                        if (scroll > 10)
-                        {
-                            scroll = 10;
-                        }
-                        if (scroll < -10)
-                        {
-                            scroll = -10;
-                        }
-                       /*if (oldscroll != scroll)
-                        {
-                            heldEnt.Physics.AngularVelocity = new Vector3(0, scroll, 0);
-                        }
-                        else
-                        {
-                            scroll = 0;
-                            heldEnt.Physics.AngularVelocity = new Vector3(0, scroll, 0);
-                        }*/
-                        oldscroll = scroll;
+                        // Если нет вращения, полностью сбрасываем угловую скорость
+                        heldEnt.Physics.AngularVelocity = Vector3.Zero;
                     }
-
                     if (MyAPIGateway.Input.IsMousePressed(VRage.Input.MyMouseButtonsEnum.Left))
                     {
                         Vector3 linearVelosity = heldEnt.Physics.LinearVelocity;
                         Vector3 toApply = character.Physics.GetWorldMatrix().GetOrientation().Forward;
-
                         toApply.Multiply(5f);
-
                         linearVelosity.Add(toApply);
-
                         heldEnt.Physics.SetSpeeds(linearVelosity, heldEnt.Physics.AngularVelocity);
                     }
 

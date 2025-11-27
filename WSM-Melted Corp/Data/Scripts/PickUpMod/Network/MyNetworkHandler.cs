@@ -12,10 +12,8 @@ namespace PickUpMod.PickUpMod
 {
     class MyNetworkHandler : IDisposable
     {
-
         public MyEasyNetworkManager MyNetwork;
         public static MyNetworkHandler Static;
-
         public static void Init()
         {
             if (Static == null)
@@ -28,7 +26,6 @@ namespace PickUpMod.PickUpMod
         {
             MyNetwork = new MyEasyNetworkManager(52547);
             MyNetwork.Register();
-
             MyNetwork.OnRecievedPacket += PacketIn;
         }
 
@@ -48,7 +45,6 @@ namespace PickUpMod.PickUpMod
                             if (!grid.Closed && grid.Physics != null)
                             {
                                 MatrixD m = grid.WorldMatrix;
-
                                 Vector3 transformedOff = Vector3.Transform(packet.Translation, grid.WorldMatrix) - m.Translation;
                                 Vector3 currentPos = m.Translation + transformedOff;
 
@@ -57,18 +53,16 @@ namespace PickUpMod.PickUpMod
                                     return;
                                 }
 
-                                Utils.AddForceTowards(grid, currentPos, packet.DesiredPos, packet.Foward);
+                                // Сохраняем угловую скорость, так как она будет установлена из пакета
+                                Utils.AddForceTowards(grid, currentPos, packet.DesiredPos, packet.Foward, true);
                                 grid.Physics.AngularVelocity = packet.Rotation;
 
                                 if (packet.IsThrow)
                                 {
                                     Vector3 linearVelosity = grid.Physics.LinearVelocity;
                                     Vector3 toApply = character.Physics.GetWorldMatrix().GetOrientation().Forward;
-
                                     toApply.Multiply(5f);
-
                                     linearVelosity.Add(toApply);
-
                                     grid.Physics.SetSpeeds(linearVelosity, grid.Physics.AngularVelocity);
                                 }
 
