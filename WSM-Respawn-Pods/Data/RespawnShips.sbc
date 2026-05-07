@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RespawnShips>
+	<!-- Example Definition
+	<Ship>
+	  <Id>
+		<TypeId>RespawnShipDefinition</TypeId>
+		<SubtypeId>ExamplePod</SubtypeId>
+	  </Id>
+	  <DisplayName>DisplayName_PlanetaryLander</DisplayName>		Name of the pod.
+	  <Icon>Textures\GUI\Icons\RespawnShips\RespawnPlanetPod.png</Icon>		Thumbnail icon of the pod.
+	  <CooldownSeconds>900</CooldownSeconds>		Default cooltime time after spawning until the player can spawn another in.
+	  <Prefab>RespawnPlanetPod</Prefab>		The prefab that should be used.
+	  
+	  <UseForSpace>false</UseForSpace>		When true the pod can spawn in space.
+	  <SpawnNearProceduralAsteroids>false</SpawnNearProceduralAsteroids>	Space pods always start near a procedural asteroid.
+	  <SpawnPosition>	Specify a starter location for a space pod.
+		<X>0</X>
+		<Y>0</Y>
+		<Z>0</Z>
+	  </SpawnPosition>
+	  <SpawnPositionDispersionMin>0</SpawnPositionDispersionMin>	Minimum deviation from the given point in meters.
+	  <SpawnPositionDispersionMax>1000</SpawnPositionDispersionMax>	Maximum deviation from the given point in meters.
+
+	  <UseForPlanetsWithAtmosphere>true</UseForPlanetsWithAtmosphere>	When true the pod can spawn on planets with atmosphere.
+	  <UseForPlanetsWithoutAtmosphere>true</UseForPlanetsWithoutAtmosphere>	When true the pod can spawn on planets without atmosphere.
+
+	  <MinimalAirDensity>0.8</MinimalAirDensity>	Sets a minimum value for atmospheric density in which the pod can spawn. Lower values allows high mountain tops with minimal atmosphere as spawn locations.
+	  <PlanetDeployAltitude>2000</PlanetDeployAltitude>	The distance this pod should spawn above the surface of the chosen planet.
+
+	  <InitialLinearVelocity x="0" y="-95" z="0" />	Adds velocity to the pod on spawn.
+	  <InitialAngularVelocity x="0" y="0.5" z="0" />	Adds velocity to the pod on spawn.
+	  
+	  <PlanetTypes>
+		<PlanetType>Mars</PlanetType>	A whitelist of planet subtypes this pod can be used for. All planets are available if not included in the definition.
+	  </PlanetTypes>
+	  
+	  <SpawnWithDefaultItems>true</SpawnWithDefaultItems>	When false the pod is cleared of any contents.
+	  
+	  <HelpTextLocalizationId>RespawnScreeenHelpTextSpawn</HelpTextLocalizationId>	Text below the spawn pods image in the spawn menu.
+	</Ship>
+	-->
+
+	<!-- Planetary-->
+	<Ship>
+	  <Id>
+		<TypeId>RespawnShipDefinition</TypeId>
+		<SubtypeId>StartCapsulPlanet</SubtypeId>
+	  </Id>
+	  <DisplayName>Save Capsul Planet</DisplayName>
+	  <Icon>Textures\GUI\Icons\RespawnShips\StartPodCapsul.png</Icon>
+	  <CooldownSeconds>900</CooldownSeconds>
+	  <Prefab>StartPodCapsul</Prefab>
+
+	  <UseForSpace>false</UseForSpace>
+	  <UseForPlanetsWithAtmosphere>true</UseForPlanetsWithAtmosphere>
+	  <UseForPlanetsWithoutAtmosphere>false</UseForPlanetsWithoutAtmosphere>	  
+	  <PlanetDeployAltitude>1500</PlanetDeployAltitude>
+	  <MinimalAirDensity>0.5</MinimalAirDensity>
+
+	  <HelpTextLocalizationId>Rescue capsule for survival in harsh conditions.</HelpTextLocalizationId>
+	</Ship>
+	<!-- Sputnik -->
+	<Ship> 
+	  <Id>
+		<TypeId>RespawnShipDefinition</TypeId>
+		<SubtypeId>StartCapsulSputink</SubtypeId>
+	  </Id>
+	  <DisplayName>Save Capsul Sputink</DisplayName>
+	  <Icon>Textures\GUI\Icons\RespawnShips\StartPodCapsul.png</Icon>
+	  <CooldownSeconds>900</CooldownSeconds>
+	  <Prefab>StartPodCapsul</Prefab>
+
+	  <UseForSpace>false</UseForSpace>
+	  <UseForPlanetsWithAtmosphere>false</UseForPlanetsWithAtmosphere>
+	  <UseForPlanetsWithoutAtmosphere>true</UseForPlanetsWithoutAtmosphere>
+	  <PlanetDeployAltitude>9</PlanetDeployAltitude>
+
+	  <HelpTextLocalizationId>Rescue capsule for survival in harsh conditions.</HelpTextLocalizationId>
+	</Ship>
+	
+	<!-- Space -->
+	<Ship>
+	  <Id>
+		<TypeId>RespawnShipDefinition</TypeId>
+		<SubtypeId>StartCapsulSpace</SubtypeId>
+	  </Id>
+	  <DisplayName>Save Capsul Space</DisplayName>
+	  <Icon>Textures\GUI\Icons\RespawnShips\StartPodCapsul.png</Icon>
+	  <CooldownSeconds>900</CooldownSeconds>
+	  <Prefab>StartPodCapsul</Prefab>
+
+	  <UseForSpace>true</UseForSpace>
+	  <SpawnNearProceduralAsteroids>true</SpawnNearProceduralAsteroids>
+
+	  <HelpTextLocalizationId>Rescue capsule for survival in harsh conditions.</HelpTextLocalizationId>
+	</Ship>
+
+
+	<Ship Enabled="false"> <!-- Planetary Rover -->
+	  <Id>
+		<TypeId>RespawnShipDefinition</TypeId>
+		<SubtypeId>RespawnRover</SubtypeId>
+	  </Id>
+	  <DisplayName>DisplayName_PlanetaryLander</DisplayName>
+	  <Icon>Textures\GUI\Icons\RespawnShips\RespawnRover.png</Icon>
+	  <CooldownSeconds>900</CooldownSeconds>
+	  <Prefab>RespawnRover</Prefab>
+
+	  <UseForSpace>false</UseForSpace>
+	  <UseForPlanetsWithAtmosphere>true</UseForPlanetsWithAtmosphere>
+	  <UseForPlanetsWithoutAtmosphere>false</UseForPlanetsWithoutAtmosphere>	  
+	  <PlanetDeployAltitude>1500</PlanetDeployAltitude>
+	  <MinimalAirDensity>0.9</MinimalAirDensity>
+
+      <InitialLinearVelocity x="0" y="-95" z="0" />
+	  <InitialAngularVelocity x="0" y="0.4" z="0" />
+
+	  <HelpTextLocalizationId>Description_RespawnRover</HelpTextLocalizationId>
+	</Ship>
+
+    <Ship Enabled="false"> <!-- Moon Rover -->
+	  <Id>
+		<TypeId>RespawnShipDefinition</TypeId>
+		<SubtypeId>RespawnMoonRover</SubtypeId>
+	  </Id>
+	  <DisplayName>DisplayName_PlanetaryLander</DisplayName>
+	  <Icon>Textures\GUI\Icons\RespawnShips\RespawnRover.png</Icon>
+	  <CooldownSeconds>900</CooldownSeconds>
+	  <Prefab>RespawnRover</Prefab>
+
+	  <UseForSpace>false</UseForSpace>
+	  <UseForPlanetsWithAtmosphere>false</UseForPlanetsWithAtmosphere>
+	  <UseForPlanetsWithoutAtmosphere>true</UseForPlanetsWithoutAtmosphere>
+	  <PlanetDeployAltitude>15</PlanetDeployAltitude>
+
+	  <HelpTextLocalizationId>Description_RespawnRover</HelpTextLocalizationId>
+	</Ship>
+	
+	<Ship Enabled="false"> <!-- Space Start -->
+	  <Id>
+		<TypeId>RespawnShipDefinition</TypeId>
+		<SubtypeId>RespawnSpacePod</SubtypeId>
+	  </Id>
+	  <DisplayName>DisplayName_RespawnPodSpace</DisplayName>
+	  <Icon>Textures\GUI\Icons\RespawnShips\RespawnSpacePod.png</Icon>
+	  <CooldownSeconds>900</CooldownSeconds>
+	  <Prefab>RespawnSpacePod</Prefab>
+
+	  <UseForSpace>true</UseForSpace>
+	  <SpawnNearProceduralAsteroids>true</SpawnNearProceduralAsteroids>
+
+	  <HelpTextLocalizationId>Description_SpacePod</HelpTextLocalizationId>
+	</Ship>
+
+
+  </RespawnShips>
+</Definitions>
