@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <BlockVariantGroups>
+
+        <BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="TankGroupOxygen" />
+            <Icon>Textures\GUI\Icons\Cubes\OxygenTank.dds</Icon>
+            <DisplayName>Tank Oxygen Group</DisplayName>
+            <Description>Block Oxygen Tank Group</Description>
+            <Blocks>
+                <Block Type="MyObjectBuilder_OxygenTank" Subtype="" />
+                <Block Type="MyObjectBuilder_OxygenTank" Subtype="OxygenTankSmall" />
+                <Block Type="MyObjectBuilder_OxygenTank" Subtype="LargeBlockOxygenTankLab" />
+                <Block Type="MyObjectBuilder_OxygenTank" Subtype="SmallOxygenTankSmall" />
+            </Blocks>
+        </BlockVariantGroup>
+
+        <BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="TankGroupHydrogen" />
+            <Icon>Textures\GUI\Icons\Cubes\OxygenTank.dds</Icon>
+            <DisplayName>Tank Hydrogen Group</DisplayName>
+            <Description>Block Hydrogen Tank Group</Description>
+            <Blocks>
+                <Block Type="MyObjectBuilder_OxygenTank" Subtype="LargeHydrogenTank" />
+                <Block Type="MyObjectBuilder_OxygenTank" Subtype="LargeHydrogenTankSmall" />
+                <Block Type="MyObjectBuilder_OxygenTank" Subtype="LargeHydrogenTankSmallLab" />
+                <Block Type="MyObjectBuilder_OxygenTank" Subtype="LargeHydrogenTankIndustrial" />
+                <Block Type="MyObjectBuilder_OxygenTank" Subtype="SmallHydrogenTank" />
+                <Block Type="MyObjectBuilder_OxygenTank" Subtype="SmallHydrogenTankLab" />
+                <Block Type="MyObjectBuilder_OxygenTank" Subtype="SmallHydrogenTankMedium" />
+                <Block Type="MyObjectBuilder_OxygenTank" Subtype="SmallHydrogenTankSmall" />
+            </Blocks>
+        </BlockVariantGroup>
+    </BlockVariantGroups>
+</Definitions>
+

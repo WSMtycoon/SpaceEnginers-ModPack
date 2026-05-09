@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <RadialMenus>
+        <RadialMenu>
+            <Id Type="RadialMenu" Subtype="VoxelHand" />
+            <Sections>
+                <Section>
+                    <Label>RadialMenuGroupTitle_Logistics2</Label>
+                    <Items>
+                        <Item xsi:type="MyObjectBuilder_RadialMenuItemCubeBlock">
+                            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="CollectorGroup" />
+                        </Item>
+                        <Item xsi:type="MyObjectBuilder_RadialMenuItemCubeBlock">
+                            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="ConnectorGroup" />
+                        </Item>
+                        <Item xsi:type="MyObjectBuilder_RadialMenuItemCubeBlock">
+                            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="TankGroupOxygen" />
+                        </Item>
+                        <Item xsi:type="MyObjectBuilder_RadialMenuItemCubeBlock">
+                            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="TankGroupHydrogen" />
+                        </Item>
+                        <Item xsi:type="MyObjectBuilder_RadialMenuItemCubeBlock">
+                            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="OxygenFarmGroup" />
+                        </Item>
+                        <Item xsi:type="MyObjectBuilder_RadialMenuItemCubeBlock">
+                            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="AirVentGroup" />
+                        </Item>
+                        <Item xsi:type="MyObjectBuilder_RadialMenuItemCubeBlock">
+                            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="RefillStation" />
+                        </Item>
+                    </Items>
+                </Section>
+            </Sections>
+        </RadialMenu>
+    </RadialMenus>
+</Definitions>
+<!--
+	mod_warning: Unknown MOD, in file: Unknown
+	Block MyObjectBuilder_BlockVariantGroup/TankGroupOxygen block variant group doesn't have `DisplayNameEnum` property
+	mod_warning: Unknown MOD, in file: Unknown
+	Block MyObjectBuilder_BlockVariantGroup/TankGroupHydrogen block variant group doesn't have `DisplayNameEnum` property
+-->

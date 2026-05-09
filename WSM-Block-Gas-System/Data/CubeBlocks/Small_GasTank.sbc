@@ -1,0 +1,159 @@
+<?xml version="1.0" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<CubeBlocks>
+        <Definition xsi:type="MyObjectBuilder_GasTankDefinition">
+            <Id>
+                <TypeId>OxygenTank</TypeId>
+                <SubtypeId>OxygenTankSmall</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_OxygenTank</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Small_TankMedium.dds</Icon>
+            <Description>Description_OxygenTank</Description>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="3" y="3" z="2" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\Small_TankMedium.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="LargeTube" Count="8" />
+                <Component Subtype="SmallTube" Count="10" />
+                <Component Subtype="Computer" Count="8" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="SteelPlate" Count="6" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="3.00" EndY="3.00"/>
+				<MountPoint Side="Back" StartX="0.00" StartY="1.00" EndX="1.00" EndY="2.00"/>
+				<MountPoint Side="Back" StartX="2.00" StartY="1.00" EndX="3.00" EndY="2.00"/>
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.30" EndY="3.00"/>
+				<MountPoint Side="Right" StartX="0.70" StartY="0.00" EndX="2.00" EndY="3.00"/>
+				<MountPoint Side="Top" StartX="0.00" StartY="0.70" EndX="3.00" EndY="2.00"/>
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="3.00" EndY="1.30"/>
+			</MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Small_TankMedium_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Small_TankMedium_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>Small_OxygenTank</BlockPairName>
+            <Center x="1" y="1" z="1" />
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <BuildTimeSeconds>15</BuildTimeSeconds>
+            <EdgeType>Light</EdgeType>
+            <ResourceSourceGroup>Reactors</ResourceSourceGroup>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <Capacity>50000</Capacity>
+            <InventoryMaxVolume>0.360</InventoryMaxVolume>
+            <InventorySize>
+                <X>2</X>
+                <Y>2</Y>
+                <Z>2</Z>
+            </InventorySize>
+            <OperationalPowerConsumption>0.001</OperationalPowerConsumption>
+            <StandbyPowerConsumption>0.000001</StandbyPowerConsumption>
+            <StoredGasId>
+                <TypeId>GasProperties</TypeId>
+                <SubtypeId>Oxygen</SubtypeId>
+            </StoredGasId>
+            <BlueprintClasses>
+                <Class>OxygenBottles</Class>
+            </BlueprintClasses>
+            <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+            <DamagedSound>ParticleWeapExpl</DamagedSound>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <LeakPercent>0.0125</LeakPercent>
+            <GasExplosionMaxRadius>4</GasExplosionMaxRadius>
+            <GasExplosionNeededVolumeToReachMaxRadius>50000</GasExplosionNeededVolumeToReachMaxRadius>
+            <GasExplosionDamageMultiplier>0.00015</GasExplosionDamageMultiplier>
+            <GasExplosionSound>WepSmallWarheadExpl</GasExplosionSound>
+            <GasExplosionEffect>BlockDestroyedExplosion_Small</GasExplosionEffect>
+            <TieredUpdateTimes>
+                <unsignedInt>100</unsignedInt>
+                <unsignedInt>300</unsignedInt>
+                <unsignedInt>600</unsignedInt>
+            </TieredUpdateTimes>
+        </Definition>
+        <Definition xsi:type="MyObjectBuilder_GasTankDefinition">
+            <Id>
+                <TypeId>OxygenTank</TypeId>
+				<SubtypeId>SmallHydrogenTankMedium</SubtypeId>
+            </Id>
+            <DisplayName>Hydrogen Tank Medium</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Small_TankMedium.dds</Icon>
+            <Description>Description_HydrogenTank</Description>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="3" y="3" z="2" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\Small_TankMedium.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="LargeTube" Count="8" />
+                <Component Subtype="SmallTube" Count="10" />
+                <Component Subtype="Computer" Count="8" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="SteelPlate" Count="6" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="3.00" EndY="3.00"/>
+				<MountPoint Side="Back" StartX="0.00" StartY="1.00" EndX="1.00" EndY="2.00"/>
+				<MountPoint Side="Back" StartX="2.00" StartY="1.00" EndX="3.00" EndY="2.00"/>
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.30" EndY="3.00"/>
+				<MountPoint Side="Right" StartX="0.70" StartY="0.00" EndX="2.00" EndY="3.00"/>
+				<MountPoint Side="Top" StartX="0.00" StartY="0.70" EndX="3.00" EndY="2.00"/>
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="3.00" EndY="1.30"/>
+			</MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Small_TankMedium_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Small_TankMedium_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>Small_TankMedium</BlockPairName>
+            <Center x="1" y="1" z="1" />
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <BuildTimeSeconds>15</BuildTimeSeconds>
+            <EdgeType>Light</EdgeType>
+            <ResourceSourceGroup>Reactors</ResourceSourceGroup>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <Capacity>50000</Capacity>
+            <InventoryMaxVolume>0.360</InventoryMaxVolume>
+            <InventorySize>
+                <X>2</X>
+                <Y>2</Y>
+                <Z>2</Z>
+            </InventorySize>
+            <OperationalPowerConsumption>0.001</OperationalPowerConsumption>
+            <StandbyPowerConsumption>0.000001</StandbyPowerConsumption>
+            <StoredGasId>
+                <TypeId>GasProperties</TypeId>
+                <SubtypeId>Hydrogen</SubtypeId>
+            </StoredGasId>
+            <BlueprintClasses>
+                <Class>HydrogenBottles</Class>
+            </BlueprintClasses>
+            <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+            <DamagedSound>ParticleWeapExpl</DamagedSound>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <LeakPercent>0.0125</LeakPercent>
+            <GasExplosionMaxRadius>4</GasExplosionMaxRadius>
+            <GasExplosionNeededVolumeToReachMaxRadius>50000</GasExplosionNeededVolumeToReachMaxRadius>
+            <GasExplosionDamageMultiplier>0.00015</GasExplosionDamageMultiplier>
+            <GasExplosionSound>WepSmallWarheadExpl</GasExplosionSound>
+            <GasExplosionEffect>BlockDestroyedExplosion_Small</GasExplosionEffect>
+            <TieredUpdateTimes>
+                <unsignedInt>100</unsignedInt>
+                <unsignedInt>300</unsignedInt>
+                <unsignedInt>600</unsignedInt>
+            </TieredUpdateTimes>
+        </Definition>
+	</CubeBlocks>
+</Definitions>

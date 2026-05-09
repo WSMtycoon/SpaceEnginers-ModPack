@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<BlockTags>	
+        <BlockTag>
+          <Id>
+            <TypeId>CubeBlockTagDefinition</TypeId>
+            <SubtypeId>OxygenTanks</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_BlockGroup_OxygenTanks</DisplayName>
+          <Blocks>
+            <Block Type="MyObjectBuilder_OxygenTank" Subtype="" />
+            <Block Type="MyObjectBuilder_OxygenTank" Subtype="LargeBlockOxygenTankLab" />
+            <Block Type="MyObjectBuilder_OxygenTank" Subtype="OxygenTankSmall" />
+            <Block Type="MyObjectBuilder_OxygenTank" Subtype="SmallOxygenTankSmall" />
+          </Blocks>
+        </BlockTag>
+
+        <BlockTag>
+          <Id>
+            <TypeId>CubeBlockTagDefinition</TypeId>
+            <SubtypeId>HydrogenTanks</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_BlockGroup_HydrogenTanks</DisplayName>
+          <Blocks>
+            <Block Type="MyObjectBuilder_OxygenTank" Subtype="LargeHydrogenTankIndustrial" />
+            <Block Type="MyObjectBuilder_OxygenTank" Subtype="LargeHydrogenTank" />
+            <Block Type="MyObjectBuilder_OxygenTank" Subtype="LargeHydrogenTankSmall" />
+            <Block Type="MyObjectBuilder_OxygenTank" Subtype="LargeHydrogenTankSmallLab" />
+            <Block Type="MyObjectBuilder_OxygenTank" Subtype="SmallHydrogenTankLab" />
+            <Block Type="MyObjectBuilder_OxygenTank" Subtype="SmallHydrogenTank" />
+            <Block Type="MyObjectBuilder_OxygenTank" Subtype="SmallHydrogenTankSmall" /> 
+            <Block Type="MyObjectBuilder_OxygenTank" Subtype="SmallHydrogenTankMedium" />
+          </Blocks>
+        </BlockTag>
+    </BlockTags>
+</Definitions>
+
