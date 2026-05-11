@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!-- This file is used to tag groups of blocks for the block limit system. -->
+	
+	<BlockTags>	
+		
+        <BlockTag>
+          <Id>
+            <TypeId>CubeBlockTagDefinition</TypeId>
+            <SubtypeId>Assemblers</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_BlockGroup_Assemblers</DisplayName>
+          <Blocks>
+            <Block Type="MyObjectBuilder_Assembler" Subtype="BasicAssembler" />
+            <Block Type="MyObjectBuilder_Assembler" Subtype="SmallBasicAssembler" />
+            <Block Type="MyObjectBuilder_Assembler" Subtype="LargeAssemblerIndustrial" />
+            <Block Type="MyObjectBuilder_Assembler" Subtype="LargeAssembler" />
+            <Block Type="MyObjectBuilder_Assembler" Subtype="LargePrototechAssembler" />
+			<Block Type="MyObjectBuilder_Assembler" Subtype="FoodProcessor" />
+          </Blocks>
+        </BlockTag>
+		
+    </BlockTags>
+</Definitions>
+

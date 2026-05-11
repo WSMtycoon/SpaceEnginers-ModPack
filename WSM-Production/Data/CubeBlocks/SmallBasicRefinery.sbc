@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<CubeBlocks>
+        <Definition xsi:type="MyObjectBuilder_RefineryDefinition">
+            <Id>
+                <TypeId>Refinery</TypeId>
+                <SubtypeId>SmallBasicRefinery</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_Arc_Furnace</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SmallBasicRefinery.dds</Icon>
+            <Description>Description_RefineryBasic</Description>
+            <CubeSize>Small</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="6" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+            <Model>Models\Cubes\small\SmallBasicRefinery.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="20" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="Motor" Count="10" />
+                <Component Subtype="Computer" Count="10" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="3.00" EndY="6.00"/>
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="3.00" EndY="3.00"/>
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="3.00" EndY="3.00"/>
+				<MountPoint Side="Left" StartX="0.00" StartY="3.00" EndX="1.25" EndY="6.00"/>
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="3.00" EndY="3.00"/>
+				<MountPoint Side="Right" StartX="1.75" StartY="3.00" EndX="3.00" EndY="6.00"/>
+				<MountPoint Side="Top" StartX="0.00" StartY="1.70" EndX="3.00" EndY="3.00"/>
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="3.00" EndY="3.00"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\small\SmallBasicRefinery_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.67" File="Models\Cubes\small\SmallBasicRefinery_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\small\SmallBasicRefinery_BS3.mwm"/>
+			</BuildProgressModels>
+            <BlockPairName>Blast Furnace</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>30</BuildTimeSeconds>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <InventoryMaxVolume>1</InventoryMaxVolume>
+            <InventorySize>
+                <X>2</X>
+                <Y>2</Y>
+                <Z>2</Z>
+            </InventorySize>
+            <InventoryFillFactorMin>0.3</InventoryFillFactorMin>
+            <InventoryFillFactorMax>0.6</InventoryFillFactorMax>
+            <StandbyPowerConsumption>0.001</StandbyPowerConsumption>
+            <OperationalPowerConsumption>0.13</OperationalPowerConsumption>
+            <BlueprintClasses>
+                <Class>CommonMetals</Class>
+            </BlueprintClasses>
+            <RefineSpeed>0.25</RefineSpeed>
+            <MaterialEfficiency>0.7</MaterialEfficiency>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <PrimarySound>BlockRafinery</PrimarySound>
+            <ActionSound>BlockRafineryProcess</ActionSound>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <OreAmountPerPullRequest>2000</OreAmountPerPullRequest>
+            <PCU>50</PCU>
+            <TieredUpdateTimes>
+                <unsignedInt>60</unsignedInt>
+                <unsignedInt>120</unsignedInt>
+                <unsignedInt>240</unsignedInt>
+            </TieredUpdateTimes>
+            <AllowSelfPulling>false</AllowSelfPulling>
+        </Definition>
+	</CubeBlocks>
+</Definitions>
