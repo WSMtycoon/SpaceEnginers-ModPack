@@ -59,17 +59,11 @@ namespace PickUpMod.PickUpMod
                 MyAPIGateway.Session.Player?.Controller?.ControlledEntity?.Entity is IMyCharacter)
             {
                 IMyCharacter character = MyAPIGateway.Session.Player?.Controller?.ControlledEntity?.Entity as IMyCharacter;
-                if (character.EquippedTool != null)
-                {
-                    return;
-                }
-                if (delay != 0)
-                {
-                    delay--;
-                    return;
-                }
+                
+				if (character.EquippedTool != null) { return; }
+                if (delay != 0) { delay--; return; }
 
-                MatrixD mat = MyAPIGateway.Session.Player.Character.GetHeadMatrix(true);
+                MatrixD matPlayer = MyAPIGateway.Session.Player.Character.GetHeadMatrix(true);
                 if (MyAPIGateway.Input.IsNewGameControlPressed(MyControlsSpace.USE))
                 {
                     if (held != null)
@@ -81,7 +75,7 @@ namespace PickUpMod.PickUpMod
                     else
                     {
                         IHitInfo hit;
-                        MyAPIGateway.Physics.CastRay(mat.Translation, mat.Translation + mat.Forward * 4, out hit);
+                        MyAPIGateway.Physics.CastRay(matPlayer.Translation, matPlayer.Translation + matPlayer.Forward * 4, out hit);
                         if (hit != null && hit.HitEntity != null && hit.HitEntity is IMyCubeGrid)
                         {
                             IMyCubeGrid grid = hit.HitEntity as IMyCubeGrid;
@@ -107,7 +101,7 @@ namespace PickUpMod.PickUpMod
                                 hitPos = Vector3.Transform(centerOfMassWorld, held.PositionComp.WorldMatrixNormalizedInv);
                                 
                                 // Вычисляем расстояние от камеры до центра масс
-                                distance = (float)(mat.Translation - centerOfMassWorld).Length();
+                                distance = (float)(matPlayer.Translation - centerOfMassWorld).Length();
                                 MyVisualScriptLogicProvider.SetHighlightLocal(held.Name, 20, 0, Color.Yellow * .1f);
                                 MyVisualScriptLogicProvider.PlaySingleSoundAtPosition("PickGrid", (Vector3)MyAPIGateway.Session.Player.GetPosition());
                                 //MyVisualScriptLogicProvider.ShowNotification(held.DisplayName, 2000, "Green", MyAPIGateway.Session.Player.IdentityId);
@@ -124,7 +118,7 @@ namespace PickUpMod.PickUpMod
                     else
                     {
                         IHitInfo hit;
-                        MyAPIGateway.Physics.CastRay(mat.Translation, mat.Translation + mat.Forward * 4, out hit);
+                        MyAPIGateway.Physics.CastRay(matPlayer.Translation, matPlayer.Translation + matPlayer.Forward * 4, out hit);
                         if (hit != null && hit.HitEntity != null && hit.HitEntity is IMyCubeGrid)
                         {
                             IMyCubeGrid grid = hit.HitEntity as IMyCubeGrid;
@@ -142,7 +136,7 @@ namespace PickUpMod.PickUpMod
                                 heldToView = grid;
                                 gridForward = grid.WorldMatrix.Backward;
                                 hitPos = Vector3.Transform(hit.Position, heldToView.PositionComp.WorldMatrixNormalizedInv);
-                                distance = (float)(mat.Translation - hit.Position).Length();
+                                distance = (float)(matPlayer.Translation - hit.Position).Length();
                                 MyVisualScriptLogicProvider.SetHighlightLocal(heldToView.Name, 20, 0, Color.Red * .1f);
                                 MyVisualScriptLogicProvider.ShowNotification("I can't move this!", 2000, "Red", MyAPIGateway.Session.Player.IdentityId);
                                 MyVisualScriptLogicProvider.PlaySingleSoundAtPosition("ArcHudItem", (Vector3)MyAPIGateway.Session.Player.GetPosition());
@@ -165,13 +159,13 @@ namespace PickUpMod.PickUpMod
                         return;
                     }
 
-                    MatrixD m = held.WorldMatrix;
+                    MatrixD matHeld = held.WorldMatrix;
 
                     // Получаем актуальный центр масс объекта (обновляется каждый кадр)
                     Vector3D currentCenterOfMass = heldEnt.Physics.CenterOfMassWorld;
                     
                     // Желаемая позиция - центр перекрестья на экране (центр экрана игрока)
-                    Vector3D desiredPos = mat.Translation + (mat.Forward * distance);
+                    Vector3D desiredPos = matPlayer.Translation + (matPlayer.Forward * distance);
                     
                     // Текущая позиция центра масс объекта
                     Vector3D currentPos = currentCenterOfMass;
@@ -187,9 +181,9 @@ namespace PickUpMod.PickUpMod
                     }
 
                     // Используем матрицу камеры для определения осей вращения
-                    Vector3 localRight = m.Right; // Ось горизонтального вращения (влево/вправо)
-                    Vector3 localUp = m.Up;  // Ось вертикального вращения (вверх/вниз)
-                    Vector3 localForward = m.Forward; // Ось крена (roll)
+                    Vector3 localRight = matHeld.Right; // Ось горизонтального вращения (влево/вправо)
+                    Vector3 localUp = matHeld.Up;  // Ось вертикального вращения (вверх/вниз)
+                    Vector3 localForward = matHeld.Forward; // Ось крена (roll)
                     
                     // Убеждаемся, что центр масс актуален (обновляется каждый кадр)
                     // AngularVelocity автоматически вращает вокруг текущего центра масс
@@ -200,39 +194,76 @@ namespace PickUpMod.PickUpMod
                     Vector3 targetAngularVelocity = Vector3.Zero;
                     bool hasManualRotation = false;
 
+/*					// Проверяем все 6 направлений вращения
+					for (int i = 0; i < 6; i++)
+					{
+						// Используем системные настройки управления вместо хардкода клавиш
+						if (MyControllerHelper.IsControl(MyControlsSpace.CubeBuilding, m_rotationControls[i], MyControlStateType.PRESSED))
+						{
+							hasManualRotation = true;
+							
+							// Определяем ось вращения на основе направления и камеры
+							Vector3 rotationAxis = Vector3.Zero;
+							int direction = m_rotationDirections[i];
 
+							if (i < 2) // Вертикальное вращение (вверх/вниз)
+							{
+								rotationAxis = cameraUp; // Вращение вокруг оси "вверх" камеры
+								direction *= 1; // Направление уже задано в m_rotationDirections
+							}
+							else if (i >= 2 && i < 4) // Горизонтальное вращение (влево/вправо)
+							{
+								rotationAxis = cameraRight; // Вращение вокруг оси "вправо" камеры  
+								direction *= 1;
+							}
+							else if (i >= 4) // Вращение крена
+							{
+								rotationAxis = cameraForward; // Вращение вокруг оси "вперед" камеры
+								direction *= 1;
+							}
+
+							// Применяем вращение
+							if (rotationAxis.LengthSquared() > 0.1f)
+							{
+								float rotationSpeed = angel * 0.1f; // Настройте скорость по вкусу
+								targetAngularVelocity = rotationAxis * direction * rotationSpeed;
+								break; // Обрабатываем только одно нажатие за раз
+							}
+						}
+					}	
+*/
 					if (MyAPIGateway.Input.IsKeyPress(VRage.Input.MyKeys.Insert)){
-                        scroll = scroll + angel;
+                        scroll += angel;
                         hasManualRotation = true;
                         // Вращение вокруг локальной оси X (Right) относительно центра объекта
                         targetAngularVelocity = localRight * scroll;
                     }
                     else if (MyAPIGateway.Input.IsKeyPress(VRage.Input.MyKeys.PageUp)){
-                        scroll = scroll - angel;
+                        scroll -= angel;
                         hasManualRotation = true;
                         // Вращение вокруг локальной оси X (Right) относительно центра объекта
                         targetAngularVelocity = localRight * scroll;
                     }
                     else if (MyAPIGateway.Input.IsKeyPress(VRage.Input.MyKeys.Delete)){
-                        scroll = scroll + angel;
+                        scroll += angel;
                         hasManualRotation = true;
                         // Вращение вокруг локальной оси Z (Forward) относительно центра объекта
                         targetAngularVelocity = localForward * scroll;
                     }
                     else if (MyAPIGateway.Input.IsKeyPress(VRage.Input.MyKeys.PageDown)){
-                        scroll = scroll - angel;
+                        scroll -= angel;
                         hasManualRotation = true;
                         // Вращение вокруг локальной оси Z (Forward) относительно центра объекта
                         targetAngularVelocity = localForward * scroll;
                     }
 					else if (MyAPIGateway.Input.IsKeyPress(VRage.Input.MyKeys.End)){
-                        scroll = scroll + angel;
+                        scroll += angel;
                         hasManualRotation = true;
                         // Вращение вокруг локальной оси Y (Up) относительно центра объекта
                         targetAngularVelocity = localUp * scroll;
                     }
                     else if (MyAPIGateway.Input.IsKeyPress(VRage.Input.MyKeys.Home)){
-                        scroll = scroll - angel;
+                        scroll -= angel;
                         hasManualRotation = true;
                         // Вращение вокруг локальной оси Y (Up) относительно центра объекта
                         targetAngularVelocity = localUp * scroll;
