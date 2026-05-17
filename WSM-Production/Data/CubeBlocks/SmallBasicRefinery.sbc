@@ -57,7 +57,7 @@
             <BlueprintClasses>
                 <Class>CommonMetals</Class>
             </BlueprintClasses>
-            <RefineSpeed>0.25</RefineSpeed>
+            <RefineSpeed>0.35</RefineSpeed>
             <MaterialEfficiency>0.7</MaterialEfficiency>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
             <DamagedSound>ParticleHeavyMech</DamagedSound>
