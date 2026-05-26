@@ -3,7 +3,6 @@
     <!-- This file is used to tag groups of blocks for the block limit system. -->
 	
 	<BlockTags>	
-		
         <BlockTag>
           <Id>
             <TypeId>CubeBlockTagDefinition</TypeId>
@@ -13,10 +12,38 @@
           <Blocks>
             <Block Type="MyObjectBuilder_Assembler" Subtype="BasicAssembler" />
             <Block Type="MyObjectBuilder_Assembler" Subtype="SmallBasicAssembler" />
-            <Block Type="MyObjectBuilder_Assembler" Subtype="LargeAssemblerIndustrial" />
             <Block Type="MyObjectBuilder_Assembler" Subtype="LargeAssembler" />
+            <Block Type="MyObjectBuilder_Assembler" Subtype="LargeAssemblerIndustrial" />
             <Block Type="MyObjectBuilder_Assembler" Subtype="LargePrototechAssembler" />
 			<Block Type="MyObjectBuilder_Assembler" Subtype="FoodProcessor" />
+          </Blocks>
+        </BlockTag>
+        <BlockTag>
+          <Id>
+            <TypeId>CubeBlockTagDefinition</TypeId>
+            <SubtypeId>OxygenFarms</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_BlockGroup_OxygenFarms</DisplayName>
+          <Blocks>
+            <Block Type="MyObjectBuilder_OxygenFarm" Subtype="LargeBlockOxygenFarm" />
+            <Block Type="MyObjectBuilder_OxygenFarm" Subtype="LargeBlockOxygenFarmReskin" />
+            <Block Type="MyObjectBuilder_OxygenFarm" Subtype="SmallOxygenFarm" />
+            <Block Type="MyObjectBuilder_OxygenFarm" Subtype="SmallOxygenFarmReskin" />
+          </Blocks>
+        </BlockTag>
+        <BlockTag>
+          <Id>
+            <TypeId>CubeBlockTagDefinition</TypeId>
+            <SubtypeId>Refineries</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_BlockGroup_Refineries</DisplayName>
+          <Blocks>
+            <Block Type="MyObjectBuilder_Refinery" Subtype="Blast Furnace" />
+            <Block Type="MyObjectBuilder_Refinery" Subtype="SmallBasicRefinery" />
+            <Block Type="MyObjectBuilder_Refinery" Subtype="LargeRefinery" />
+            <Block Type="MyObjectBuilder_Refinery" Subtype="LargeRefineryIndustrial" />
+            <Block Type="MyObjectBuilder_Refinery" Subtype="LargePrototechRefinery" />
+            <Block Type="MyObjectBuilder_Refinery" Subtype="SmallPrototechRefinery" />
           </Blocks>
         </BlockTag>
 		

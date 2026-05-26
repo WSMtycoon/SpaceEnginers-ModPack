@@ -4,13 +4,16 @@
 		<Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition"> <!-- Small Blocks -->
 			<Id>
 				<TypeId>GuiBlockCategoryDefinition</TypeId>
-				<SubtypeId/>
+				<SubtypeId/> 
 			</Id>
 			<DisplayName>DisplayName_Category_SmallBlocks</DisplayName>
 			<Name>Section1_Position1_SmallBlocks</Name>
 			<StrictSearch>true</StrictSearch>
 			<ItemIds>
+				<string>Refinery/SmallBasicRefinery</string>
 				<string>Assembler/SmallBasicAssembler</string>
+				<string>OxygenFarm/SmallOxygenFarm</string>
+				<string>OxygenFarm/SmallOxygenFarmReskin</string>
 			</ItemIds>
 		</Category>
 		<Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition"> <!-- Nonarmor Blocks -->
@@ -22,10 +25,13 @@
 			<Name>Section1_Position2_Nonarmor</Name>
 			<StrictSearch>true</StrictSearch>
 			<ItemIds>
+				<string>Refinery/SmallBasicRefinery</string>
 				<string>Assembler/SmallBasicAssembler</string>
+				<string>OxygenFarm/SmallOxygenFarm</string>
+				<string>OxygenFarm/SmallOxygenFarmReskin</string>
 			</ItemIds>
 		</Category>
-		<Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition"> <!-- Logistics -->
+		<Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition"> <!-- Production -->
 			<Id>
 				<TypeId>GuiBlockCategoryDefinition</TypeId>
 				<SubtypeId>Production</SubtypeId>
@@ -34,7 +40,35 @@
 			<Name>Section1_Position3_Production</Name>
 			<StrictSearch>true</StrictSearch>
 			<ItemIds>
+				<string>Refinery/SmallBasicRefinery</string>
 				<string>Assembler/SmallBasicAssembler</string>
+				<string>OxygenFarm/SmallOxygenFarm</string>
+				<string>OxygenFarm/SmallOxygenFarmReskin</string>
+			</ItemIds>
+		</Category>
+		<Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition"> <!-- Apex Survival Pack -->
+			<Id>
+				<TypeId>GuiBlockCategoryDefinition</TypeId>
+				<SubtypeId/>
+			</Id>
+			<DisplayName>DisplayName_Category_DLC_ApexSurvival</DisplayName>
+			<Name>Section2_DLC_ApexSurvival</Name>
+			<StrictSearch>true</StrictSearch>
+			<ItemIds>
+				<string>OxygenFarm/SmallOxygenFarmReskin</string>
+			</ItemIds>
+		</Category>
+		<!-- DLC Categories -->
+		<Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition"> <!-- All DLC Items -->
+			<Id>
+				<TypeId>GuiBlockCategoryDefinition</TypeId>
+				<SubtypeId>DLC</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Category_DLCBlocks</DisplayName>
+			<Name>Section2_DLC</Name>
+			<StrictSearch>true</StrictSearch>
+			<ItemIds>
+				<string>OxygenFarm/SmallOxygenFarmReskin</string>
 			</ItemIds>
 		</Category>
 	</CategoryClasses>

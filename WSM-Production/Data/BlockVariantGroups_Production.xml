@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <BlockVariantGroups>
+        <BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="AssemblerGroup" />
+            <Icon>Textures\GUI\Icons\Cubes\basicassembler.dds</Icon>
+            <DisplayName>DisplayName_Block_Assembler</DisplayName>
+            <Description>Description_Assembler</Description>
+            <Blocks>
+                <Block Type="MyObjectBuilder_Assembler" Subtype="" />
+                <Block Type="MyObjectBuilder_Assembler" Subtype="BasicAssembler" />
+                <Block Type="MyObjectBuilder_Assembler" Subtype="LargeAssembler" />
+                <Block Type="MyObjectBuilder_Assembler" Subtype="LargeAssemblerIndustrial" />
+                <Block Type="MyObjectBuilder_Assembler" Subtype="SmallBasicAssembler" />
+            </Blocks>
+        </BlockVariantGroup>
+        <BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="RefineryGroup" />
+            <Icon>Textures\GUI\Icons\Cubes\refinery.dds</Icon>
+            <DisplayName>DisplayName_Block_Refinery</DisplayName>
+            <Description>Description_Refinery</Description>
+            <Blocks>
+                <Block Type="MyObjectBuilder_Refinery" Subtype="" />
+                <Block Type="MyObjectBuilder_Refinery" Subtype="Blast Furnace" />
+                <Block Type="MyObjectBuilder_Refinery" Subtype="LargeRefinery" />
+                <Block Type="MyObjectBuilder_Refinery" Subtype="LargeRefineryIndustrial" />
+                <Block Type="MyObjectBuilder_Refinery" Subtype="SmallBasicRefinery" />
+            </Blocks>
+        </BlockVariantGroup>
+        <BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="WSM_OxygenFarmGroup" />
+            <Icon>Textures\GUI\Icons\Cubes\SolarHydroponics.dds</Icon>
+            <DisplayName>DisplayName_Block_OxygenFarm</DisplayName>
+            <Description>Description_OxygenFarm</Description>
+            <Blocks>
+                <Block Type="MyObjectBuilder_OxygenFarm" Subtype="" />
+                <Block Type="MyObjectBuilder_OxygenFarm" Subtype="SmallOxygenFarm" />
+                <Block Type="MyObjectBuilder_OxygenFarm" Subtype="LargeBlockOxygenFarm" />
+                <Block Type="MyObjectBuilder_OxygenFarm" Subtype="LargeBlockOxygenFarmReskin" />
+                <Block Type="MyObjectBuilder_OxygenFarm" Subtype="SmallOxygenFarmReskin" />
+            </Blocks>
+        </BlockVariantGroup>
+    </BlockVariantGroups>
+</Definitions>

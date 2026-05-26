@@ -8,5 +8,25 @@
                 <BlockId Type="MyObjectBuilder_Assembler" Subtype="SmallBasicAssembler" />
             </Members>
         </ResearchGroup>
+        <ResearchGroup xsi:type="ResearchGroup">
+            <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="15" />
+            <Members>
+                <BlockId Type="MyObjectBuilder_OxygenGenerator" Subtype="OxygenGeneratorSmall" />
+                <BlockId Type="MyObjectBuilder_OxygenGenerator" Subtype="" />
+                <BlockId Type="MyObjectBuilder_OxygenGenerator" Subtype="LargeBlockOxygenGeneratorLab" />
+                <BlockId Type="MyObjectBuilder_OxygenGenerator" Subtype="SmallBlockOxygenGeneratorLab" />
+                <BlockId Type="MyObjectBuilder_OxygenFarm" Subtype="SmallOxygenFarm" />
+                <BlockId Type="MyObjectBuilder_OxygenFarm" Subtype="SmallOxygenFarmReskin" />
+                <BlockId Type="MyObjectBuilder_OxygenFarm" Subtype="LargeBlockOxygenFarm" />
+                <BlockId Type="MyObjectBuilder_OxygenFarm" Subtype="LargeBlockOxygenFarmReskin" />
+            </Members>
+        </ResearchGroup>
+        <ResearchGroup xsi:type="ResearchGroup">
+            <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="9" />
+            <Members>
+                <BlockId Type="MyObjectBuilder_Refinery" Subtype="Blast Furnace" />
+                <BlockId Type="MyObjectBuilder_Refinery" Subtype="SmallBasicRefinery" />
+            </Members>
+        </ResearchGroup>
     </ResearchGroups>
 </Definitions>

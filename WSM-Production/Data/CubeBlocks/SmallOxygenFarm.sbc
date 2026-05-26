@@ -2,18 +2,18 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<CubeBlocks>
         <Definition xsi:type="MyObjectBuilder_OxygenFarmDefinition">
-            <Id>
-                <TypeId>OxygenFarm</TypeId>
-                <SubtypeId>SmallOxygenFarm</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Block_OxygenFarm</DisplayName>
+			<Id>
+				<TypeId>OxygenFarm</TypeId>
+				<SubtypeId>SmallOxygenFarm</SubtypeId>
+			</Id>
+            <DisplayName>Small Oxygen Farm</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\SmallOxygenFarm.dds</Icon>
             <Description>Description_OxygenFarm</Description>
             <CubeSize>Small</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
-			<Size x="9" y="3" z="2"/>
-            <ModelOffset x="0" y="0" z="0"/>
-			<Center x="4" y="1" z="1" />
+			<Size x="3" y="8" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+            <Center x="1" y="0" z="1" />
             <Model>Models\Cubes\small\SmallOxygenFarm.mwm</Model>
             <Components>
                 <Component Subtype="SteelPlate" Count="15" />
@@ -25,18 +25,16 @@
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
 			<MountPoints>
-				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="9.00" EndY="3.00"/>
-				<MountPoint Side="Left" StartX="0.50" StartY="0.00" EndX="2.00" EndY="3.00"/>
-				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="1.50" EndY="3.00"/>
-				<MountPoint Side="Top" StartX="4.90" StartY="0.00" EndX="9.00" EndY="1.50"/>
-				<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="4.10" EndY="1.50"/>
-				<MountPoint Side="Top" StartX="4.10" StartY="0.10" EndX="4.90" EndY="0.85"/>
-				<MountPoint Side="Bottom" StartX="4.90" StartY="0.50" EndX="9.00" EndY="2.00"/>
-				<MountPoint Side="Bottom" StartX="0.00" StartY="0.50" EndX="4.10" EndY="2.00"/>
-				<MountPoint Side="Bottom" StartX="4.10" StartY="1.15" EndX="4.90" EndY="1.90"/>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="3.00" EndY="1.70"/>
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="3.00" EndY="1.70"/>
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="3.00" EndY="1.70"/>
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="3.00" EndY="1.70"/>
+				<MountPoint Side="Top" StartX="1.80" StartY="1.30" EndX="2.20" EndY="1.70"/>
+				<MountPoint Side="Top" StartX="0.80" StartY="1.30" EndX="1.20" EndY="1.70"/>
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="3.00" EndY="3.00"/>
 			</MountPoints>
-            <MirroringZ>Y</MirroringZ>
-            <MirroringY>Z</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <MirroringY>X</MirroringY>
 			<BuildProgressModels>
 				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\small\SmallOxygenFarm_BS1.mwm"/>
 				<Model BuildPercentUpperBound="0.67" File="Models\Cubes\small\SmallOxygenFarm_BS2.mwm"/>
