@@ -27,7 +27,6 @@
       <UseModelIntersection>true</UseModelIntersection>
       <Components>
         <Component Subtype="Construction" Count="1" />
-        <Component Subtype="InteriorPlate" Count="1" />
       </Components>
       <CriticalComponent Subtype="InteriorPlate" Index="1" />
       <BuildProgressModels>
@@ -63,7 +62,6 @@
       <UseModelIntersection>true</UseModelIntersection>
       <Components>
         <Component Subtype="Construction" Count="5" />
-        <Component Subtype="InteriorPlate" Count="4" />
       </Components>
       <CriticalComponent Subtype="InteriorPlate" Index="4" />
       <BuildProgressModels>

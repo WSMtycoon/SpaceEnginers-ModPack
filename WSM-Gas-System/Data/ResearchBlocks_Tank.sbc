@@ -4,7 +4,6 @@
 		<ResearchBlock xsi:type="ResearchBlock">
 			<Id Type="MyObjectBuilder_OxygenTank" Subtype="SmallHydrogenTankMedium" />
 			<UnlockedByGroups>
-				<GroupSubtype>19</GroupSubtype>
 			</UnlockedByGroups>
 		</ResearchBlock>
 	</ResearchBlocks>
