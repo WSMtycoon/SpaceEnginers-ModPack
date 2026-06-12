@@ -1,0 +1,42 @@
+
+
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <EntityComponents>
+		<EntityComponent xsi:type="MyObjectBuilder_SolarFoodGeneratorDefinition">
+			<Id>
+				<TypeId>SolarFoodGenerator</TypeId>
+				<SubtypeId>Algae</SubtypeId>
+			</Id>
+			<ItemDefinitionId>
+				<TypeId>PhysicalObject</TypeId>
+				<SubtypeId>Algae</SubtypeId>
+			</ItemDefinitionId>
+			<ProductionTime>480</ProductionTime>
+			<Quantity>1</Quantity>
+			<ResourceSinkGroup>Factory</ResourceSinkGroup>
+		</EntityComponent>
+        <EntityComponent xsi:type="MyObjectBuilder_SolarFoodGeneratorDefinition">
+            <Id>
+                <TypeId>SolarFoodGenerator</TypeId>
+                <SubtypeId>SmallAlgaeFarmGenerator</SubtypeId>
+            </Id>
+            <ItemDefinitionId>
+                <TypeId>PhysicalObject</TypeId>
+                <SubtypeId>Algae</SubtypeId>
+            </ItemDefinitionId>
+            <ProductionTime>900</ProductionTime>
+            <Quantity>1</Quantity>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+        </EntityComponent>
+        <EntityComponent xsi:type="MyObjectBuilder_ParticleEntityComponentDefinition">
+            <Id>
+                <TypeId>ParticleEntityComponent</TypeId>
+                <SubtypeId>SmallAlgaeFarmReskinBubbles1</SubtypeId>
+            </Id>
+            <ParticleEffectName>Bubbles_AlgaeReskin_1</ParticleEffectName>
+            <DummyName>Bubbles1</DummyName>
+            <RemoveExistingComponentOnNewInsert>false</RemoveExistingComponentOnNewInsert>
+        </EntityComponent>
+    </EntityComponents>
+</Definitions>

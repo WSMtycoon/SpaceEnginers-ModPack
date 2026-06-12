@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BlockPositions>
+    <BlockPosition>
+      <Name>WeldPad</Name>
+      <Position>
+        <X>8</X>
+        <Y>26</Y><!-- row -->
+      </Position>
+    </BlockPosition>
+  </BlockPositions>
+  <CubeBlocks>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>SmallWeldPad</SubtypeId>
+      </Id>
+      <BlockPairName>WeldPad</BlockPairName>
+      <DisplayName>Weld Pad</DisplayName>
+      <Icon>..\510790477\Textures\Icons\WeldPad.dds</Icon>
+      <Description>Single-use slim pads that can merge two grids without extra space required.</Description>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>..\510790477\Models\SmallWeldPad.mwm</Model>
+      <UseModelIntersection>true</UseModelIntersection>
+      <Components>
+        <Component Subtype="Construction" Count="1" />
+        <Component Subtype="Computer" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.0" File="..\510790477\Models\SmallWeldPad_Construction1.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0" />
+      </MountPoints>
+      <MirroringX>Y</MirroringX>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>1</BuildTimeSeconds>
+      <DamageEffectId>212</DamageEffectId>
+      <DamagedSound>ParticleHeavyMech</DamagedSound>
+      <IsAirTight>false</IsAirTight>
+      <IsStandAlone>false</IsStandAlone>
+      <HasPhysics>false</HasPhysics>
+    </Definition>
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>LargeWeldPad</SubtypeId>
+      </Id>
+      <BlockPairName>WeldPad</BlockPairName>
+      <DisplayName>Weld Pad</DisplayName>
+      <Icon>..\510790477\Textures\Icons\WeldPad.dds</Icon>
+      <Description>Single-use slim pads that can merge two grids without extra space required.</Description>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>..\510790477\Models\LargeWeldPad.mwm</Model>
+      <UseModelIntersection>true</UseModelIntersection>
+      <Components>
+        <Component Subtype="Construction" Count="4" />
+        <Component Subtype="Computer" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.0" File="..\510790477\Models\LargeWeldPad_Construction1.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0" />
+      </MountPoints>
+      <MirroringX>Y</MirroringX>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <DamageEffectId>212</DamageEffectId>
+      <DamagedSound>ParticleHeavyMech</DamagedSound>
+      <IsAirTight>false</IsAirTight>
+      <IsStandAlone>false</IsStandAlone>
+      <HasPhysics>false</HasPhysics>
+    </Definition>
+  </CubeBlocks>
+</Definitions>
