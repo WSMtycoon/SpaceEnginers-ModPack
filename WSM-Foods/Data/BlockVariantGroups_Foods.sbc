@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <BlockVariantGroups>
+        <BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="FoodProductionGroup" />
+            <Icon>Textures\GUI\Icons\Cubes\AlgaeFarm.dds</Icon>
+            <DisplayName>DisplayName_Block_FoodProcessor</DisplayName>
+            <Description>Description_FoodProcessor</Description>
+            <Blocks>
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="LargeBlockAlgaeFarm" />
+                <Block Type="MyObjectBuilder_Assembler" Subtype="FoodProcessor" />
+                <Block Type="MyObjectBuilder_OxygenGenerator" Subtype="IrrigationSystem" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="LargeBlockFarmPlot" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="SmallAlgaeFarm" />
+                <Block Type="MyObjectBuilder_Assembler" Subtype="SmallFoodProcessor" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="SmallAgroFarmPlot" />
+                <Block Type="MyObjectBuilder_OxygenGenerator" Subtype="SmallIrrigationSystem" />
+                <Block Type="MyObjectBuilder_OxygenGenerator" Subtype="SmallWaterSystem" />
+            </Blocks>
+        </BlockVariantGroup>
+        <BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="AlgaeFarmReskinGroup" />
+            <Icon>Textures\GUI\Icons\Cubes\AlgaeFarmReskin.dds</Icon>
+            <DisplayName>DisplayName_Block_FoodProcessor</DisplayName>
+            <Description>Description_FoodProcessor</Description>
+            <Blocks>
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="LargeBlockAlgaeFarmReskin" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="SmallAlgaeFarmReskin" />
+            </Blocks>
+        </BlockVariantGroup>
+    </BlockVariantGroups>
+</Definitions>

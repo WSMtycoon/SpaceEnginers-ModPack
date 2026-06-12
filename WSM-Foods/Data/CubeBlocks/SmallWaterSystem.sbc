@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<CubeBlocks>
+		 <Definition xsi:type="MyObjectBuilder_OxygenGeneratorDefinition">
+            <Id>
+                <TypeId>OxygenGenerator</TypeId>
+				<SubtypeId>SmallWaterSystem</SubtypeId>
+            </Id>
+            <DisplayName>Small Water System</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SmallWaterSystem.dds</Icon>
+            <Description>Description_IrrigationSystem</Description>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="2" y="3" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="1" y="1" z="1"/>
+			<Model>Models\Cubes\small\SmallWaterSystem.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="2" />
+                <Component Subtype="Construction" Count="5" />
+                <Component Subtype="LargeTube" Count="2" />
+                <Component Subtype="Motor" Count="2" />
+                <Component Subtype="Computer" Count="2" />
+                <Component Subtype="SteelPlate" Count="5" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0.65" StartY="0.00" EndX="2.00" EndY="3.00"/>
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="1.35" EndY="3.00"/>
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="3.00" EndY="3.00"/>
+				<MountPoint Side="Right" StartX="0.00" StartY="1.00" EndX="3.00" EndY="2.00"/>
+				<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="1.35" EndY="3.00"/>
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.35" EndY="3.00"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.50" File="Models\Cubes\small\SmallWaterSystem_BS1.mwm"/>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\small\SmallWaterSystem_BS2.mwm"/>
+			</BuildProgressModels>
+            <BlockPairName>SmallWaterSystem</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>15</BuildTimeSeconds>
+            <ResourceSourceGroup>Reactors</ResourceSourceGroup>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <IceConsumptionPerSecond>1</IceConsumptionPerSecond>
+            <InventoryMaxVolume>1</InventoryMaxVolume>
+            <CanRefillBottles>false</CanRefillBottles>
+            <InventorySize>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+            </InventorySize>
+            <InventoryFillFactorMin>0.3</InventoryFillFactorMin>
+            <InventoryFillFactorMax>0.6</InventoryFillFactorMax>
+            <FuelPullAmountFromConveyorInMinutes>1.1</FuelPullAmountFromConveyorInMinutes>
+            <StandbyPowerConsumption>0.001</StandbyPowerConsumption>
+            <OperationalPowerConsumption>0.05</OperationalPowerConsumption>
+            <ProducedGases>
+                <GasInfo>
+                    <Id>
+                        <TypeId>GasProperties</TypeId>
+                        <SubtypeId>Water</SubtypeId>
+                    </Id>
+                    <IceToGasRatio>1</IceToGasRatio>
+                </GasInfo>
+            </ProducedGases>
+            <BlueprintClasses>
+                <Class>Water</Class>
+            </BlueprintClasses>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <GenerateSound>BlockIrrigationProcess</GenerateSound>
+            <IdleSound>BlockIrrigationIdle</IdleSound>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <PCU>25</PCU>
+            <TieredUpdateTimes>
+                <unsignedInt>300</unsignedInt>
+                <unsignedInt>600</unsignedInt>
+                <unsignedInt>1200</unsignedInt>
+            </TieredUpdateTimes>
+        </Definition>
+	</CubeBlocks>
+</Definitions>

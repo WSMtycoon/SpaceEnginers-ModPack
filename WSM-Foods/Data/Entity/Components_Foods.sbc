@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!--
+  Usage:
+  
+  All entity component definitions (not components used in assemblers in game) have base class MyComponentDefinitionBase.
+  
+  You can define default definition for all components of same type, if you ommit the SubtypeId:
+  
+  <EntityComponents>
+    <EntityComponent xsi:type="MyObjectBuilder_CraftingComponentBlockDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_CraftingComponentBlock</TypeId>        
+      </Id>      
+    </EntityComponent>
+  </EntityComponents>
+  
+  You need to define type of the definition for deserializer - xsi:type="MyObjectBuilder_CraftingComponentBlockDefinition"
+  
+  When container on init of the components will look for component definition, it will first look for the same SubtypeId,
+  when it's not found, it will look for the definition with empty SubtypeId, if it doesn't find either, it will not call 
+  Init(MyComponentDefinitionBase definition) on component. If definition is found, it will pass the definition and call that method.
+  
+  See EntityContainers.sbc for defining default components in containers.
+
+  To enable the MyModStorageComponent and allow mods to save custom data to entities, add a entry like the following
+  and list all the custom GUIDs the mod uses for the dictionary keys.
+
+  <EntityComponents>
+    <EntityComponent xsi:type="MyObjectBuilder_ModStorageComponentDefinition">
+      <Id>
+        <TypeId>ModStorageComponent</TypeId>
+        <SubtypeId>ModName</SubtypeId>
+      </Id>
+      <RegisteredStorageGuids>
+        <guid>00000000-0000-0000-0000-000000000000</guid>
+      </RegisteredStorageGuids>
+    </EntityComponent>
+  </EntityComponents>
+
+  -->
+    <EntityComponents>
+
+        <EntityComponent xsi:type="MyObjectBuilder_SolarFoodGeneratorDefinition">
+            <Id>
+                <TypeId>SolarFoodGenerator</TypeId>
+                <SubtypeId>SmallAlgaeFarmGenerator</SubtypeId>
+            </Id>
+            <ItemDefinitionId>
+                <TypeId>PhysicalObject</TypeId>
+                <SubtypeId>Algae</SubtypeId>
+            </ItemDefinitionId>
+            <ProductionTime>360</ProductionTime>
+            <Quantity>1</Quantity>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+        </EntityComponent>
+        <EntityComponent xsi:type="MyObjectBuilder_ParticleEntityComponentDefinition">
+            <Id>
+                <TypeId>ParticleEntityComponent</TypeId>
+                <SubtypeId>SmallAlgaeFarmReskinBubbles1</SubtypeId>
+            </Id>
+            <ParticleEffectName>Bubbles_AlgaeReskin_1</ParticleEffectName>
+            <DummyName>Bubbles1</DummyName>
+            <RemoveExistingComponentOnNewInsert>false</RemoveExistingComponentOnNewInsert>
+        </EntityComponent>
+
+        <EntityComponent xsi:type="MyObjectBuilder_ParticleEntityComponentDefinition">
+            <Id>
+                <TypeId>ParticleEntityComponent</TypeId>
+                <SubtypeId>SmallAlgaeFarmReskinBubbles2</SubtypeId>
+            </Id>
+            <ParticleEffectName>Bubbles_AlgaeReskin_1</ParticleEffectName>
+            <DummyName>Bubbles2</DummyName>
+            <RemoveExistingComponentOnNewInsert>false</RemoveExistingComponentOnNewInsert>
+        </EntityComponent>
+        <EntityComponent xsi:type="MyObjectBuilder_ParticleEntityComponentDefinition">
+            <Id>
+                <TypeId>ParticleEntityComponent</TypeId>
+                <SubtypeId>SmallAlgaeFarmBubbles</SubtypeId>
+            </Id>
+            <ParticleEffectName>Bubbles_AlgaeReskin_1</ParticleEffectName>
+            <DummyName>Bubbles1</DummyName>
+            <RemoveExistingComponentOnNewInsert>false</RemoveExistingComponentOnNewInsert>
+        </EntityComponent>
+
+        <EntityComponent xsi:type="MyObjectBuilder_ParticleEntityComponentDefinition">
+            <Id>
+                <TypeId>ParticleEntityComponent</TypeId>
+                <SubtypeId>SmallAlgaeFarmBubblesTop</SubtypeId>
+            </Id>
+            <ParticleEffectName>Bubbles_AlgaeReskin_Top1</ParticleEffectName>
+            <DummyName>BubblesTop1</DummyName>
+            <RemoveExistingComponentOnNewInsert>false</RemoveExistingComponentOnNewInsert>
+        </EntityComponent>
+
+        <EntityComponent xsi:type="MyObjectBuilder_ResourceStorageComponentDefinition">
+            <Id>
+                <TypeId>ResourceStorageComponent</TypeId>
+                <SubtypeId>SmallFarmPlotComponent</SubtypeId>
+            </Id>
+            <Capacity>100</Capacity>
+            <StoredResourceId>
+                <TypeId>GasProperties</TypeId>
+                <SubtypeId>Water</SubtypeId>
+            </StoredResourceId>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <ResourceSourceGroup>SolarPanels</ResourceSourceGroup>
+            <LeakPercent>0.002</LeakPercent>
+            <UpperLimitRatio>.6</UpperLimitRatio>
+            <LowerLimitRatio>0.4</LowerLimitRatio>
+        </EntityComponent>
+		
+        <EntityComponent xsi:type="MyObjectBuilder_FarmPlotLogicDefinition">
+            <Id>
+                <TypeId>FarmPlotLogic</TypeId>
+                <SubtypeId>SmallFarmPlotLogic</SubtypeId>
+            </Id>
+            <PowerConsumption>0.01</PowerConsumption>
+            <SeedsRequired>1</SeedsRequired>
+            <WhitelistedSeeds>
+                <SeedId>
+                    <TypeId>SeedItem</TypeId>
+                    <SubtypeId>Fruit</SubtypeId>
+                </SeedId>
+                <SeedId>
+                    <TypeId>SeedItem</TypeId>
+                    <SubtypeId>Grain</SubtypeId>
+                </SeedId>
+                <SeedId>
+                    <TypeId>SeedItem</TypeId>
+                    <SubtypeId>Mushrooms</SubtypeId>
+                </SeedId>
+                <SeedId>
+                    <TypeId>SeedItem</TypeId>
+                    <SubtypeId>Vegetables</SubtypeId>
+                </SeedId>
+            </WhitelistedSeeds>
+            <PlantGrowthMinutes>30</PlantGrowthMinutes>
+            <ItemGatherSound>PlayGatherBush</ItemGatherSound>
+            <ItemGatherParticleEffect>GatherPlant</ItemGatherParticleEffect>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <ConsumedResourceId>
+                <TypeId>GasProperties</TypeId>
+                <SubtypeId>Water</SubtypeId>
+            </ConsumedResourceId>
+            <DamagePerMinuteWithoutWater>10</DamagePerMinuteWithoutWater>
+            <HealthLossPerThreeSecondsInExtremeTemp>50</HealthLossPerThreeSecondsInExtremeTemp>
+            <ParticleEffectScaling>0.1</ParticleEffectScaling>
+            <ParticleEffectUpPositionShift>0.2</ParticleEffectUpPositionShift>
+            <ScaleParticleEffectByModelSize>true</ScaleParticleEffectByModelSize>
+        </EntityComponent>
+
+		<!-- Solar Farm Logic -->
+        <EntityComponent xsi:type="MyObjectBuilder_NewSolarGameLogicComponentDefinition">
+            <Id>
+                <TypeId>NewSolarGameLogicComponent</TypeId>
+                <SubtypeId>SmallAlgaeFarmLogic</SubtypeId>
+            </Id>
+            <PanelOrientation>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1</Z>
+            </PanelOrientation>
+            <TwoSidedPanel>true</TwoSidedPanel>
+            <Pivots>
+                <Vector3>
+                  <X>1.0</X>
+                  <Y>-1.25</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+                <Vector3>
+                  <X>1.0</X>
+                  <Y>-1.25</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+
+                <Vector3>
+                  <X>1.0</X>
+                  <Y>3.0</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+                <Vector3>
+                  <X>1.0</X>
+                  <Y>3.0</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+
+                <Vector3>
+                  <X>0.7</X>
+                  <Y>-0.25</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+                <Vector3>
+                  <X>0.7</X>
+                  <Y>-0.25</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+
+                <Vector3>
+                  <X>0.7</X>
+                  <Y>1.25</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+                <Vector3>
+                  <X>0.7</X>
+                  <Y>1.25</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+
+                <Vector3>
+                  <X>-0.7</X>
+                  <Y>-0.25</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+                <Vector3>
+                  <X>-0.7</X>
+                  <Y>-0.25</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+                
+                <Vector3>
+                  <X>-0.7</X>
+                  <Y>1.25</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+                <Vector3>
+                  <X>-0.7</X>
+                  <Y>1.25</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+
+                <Vector3>
+                  <X>-1.0</X>
+                  <Y>-1.25</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+                <Vector3>
+                  <X>-1.0</X>
+                  <Y>-1.25</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+
+                <Vector3>
+                  <X>-1.0</X>
+                  <Y>3.0</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+                <Vector3>
+                  <X>-1.0</X>
+                  <Y>3.0</Y>
+                  <Z>-0.25</Z>
+                </Vector3>
+            </Pivots>
+        </EntityComponent>
+        <EntityComponent xsi:type="MyObjectBuilder_NewSolarGameLogicComponentDefinition">
+            <Id>
+                <TypeId>NewSolarGameLogicComponent</TypeId>
+                <SubtypeId>SmallAlgaeFarmReskinLogic</SubtypeId>
+            </Id>
+            <PanelOrientation>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1</Z>
+            </PanelOrientation>
+            <TwoSidedPanel>true</TwoSidedPanel>
+            <Pivots>
+                <Vector3>
+                  <X>3.45</X>
+                  <Y>-0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+                <Vector3>
+                  <X>4.45</X>
+                  <Y>-0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+
+                <Vector3>
+                  <X>3.45</X>
+                  <Y>0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+                <Vector3>
+                  <X>3.45</X>
+                  <Y>0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+
+                <Vector3>
+                  <X>2.1</X>
+                  <Y>-0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+                <Vector3>
+                  <X>2.1</X>
+                  <Y>-0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+
+                <Vector3>
+                  <X>2.1</X>
+                  <Y>0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+                <Vector3>
+                  <X>2.7</X>
+                  <Y>0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+
+                <Vector3>
+                  <X>-2.1</X>
+                  <Y>-0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+                <Vector3>
+                  <X>-2.1</X>
+                  <Y>-0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+                
+                <Vector3>
+                  <X>-2.1</X>
+                  <Y>0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+                <Vector3>
+                  <X>-2.1</X>
+                  <Y>0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+
+                <Vector3>
+                  <X>-3.45</X>
+                  <Y>-0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+                <Vector3>
+                  <X>-3.45</X>
+                  <Y>-0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+
+                <Vector3>
+                  <X>-3.45</X>
+                  <Y>0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+                <Vector3>
+                  <X>-3.45</X>
+                  <Y>0.75</Y>
+                  <Z>-0.75</Z>
+                </Vector3>
+            </Pivots>
+        </EntityComponent>
+
+    </EntityComponents>
+</Definitions>

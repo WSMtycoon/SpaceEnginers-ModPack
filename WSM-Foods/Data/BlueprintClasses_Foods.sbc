@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<BlueprintClassEntries>
+		<Entry Class="SmallBlocks" BlueprintSubtypeId="Assembler/SmallFoodProcessor" />
+		<Entry Class="SmallBlocks" BlueprintSubtypeId="FunctionalBlock/SmallAlgaeFarm" />
+		<Entry Class="SmallBlocks" BlueprintSubtypeId="FunctionalBlock/SmallAlgaeFarmReskin" />
+		<Entry Class="SmallBlocks" BlueprintSubtypeId="FunctionalBlock/SmallAgroFarmPlot" />
+		<Entry Class="SmallBlocks" BlueprintSubtypeId="OxygenGenerator/SmallIrrigationSystem" />
+		<Entry Class="SmallBlocks" BlueprintSubtypeId="OxygenGenerator/SmallWaterSystem" />
+	</BlueprintClassEntries>
+</Definitions>

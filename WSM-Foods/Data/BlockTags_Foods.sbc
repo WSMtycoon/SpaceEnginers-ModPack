@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!-- This file is used to tag groups of blocks for the block limit system. -->
+	
+	<BlockTags>	
+        <BlockTag>
+            <Id>
+                <TypeId>CubeBlockTagDefinition</TypeId>
+                <SubtypeId>AlgaeFarms</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_BlockGroup_AlgaeFarms</DisplayName>
+            <Blocks>
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="LargeBlockAlgaeFarm" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="SmallBlockAlgaeFarm" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="LargeBlockAlgaeFarmReskin" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="SmallBlockAlgaeFarmReskin" />
+            </Blocks>
+        </BlockTag>
+        <BlockTag>
+            <Id>
+                <TypeId>CubeBlockTagDefinition</TypeId>
+                <SubtypeId>FarmPlots</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_BlockGroup_FarmPlots</DisplayName>
+            <Blocks>
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="LargeBlockFarmPlot" />
+                <Block Type="MyObjectBuilder_FunctionalBlock" Subtype="SmallAgroFarmPlot" />
+            </Blocks>
+        </BlockTag>
+        <BlockTag>
+          <Id>
+            <TypeId>CubeBlockTagDefinition</TypeId>
+            <SubtypeId>IrrigationSystems</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_BlockGroup_IrrigationSystems</DisplayName>
+          <Blocks>
+            <Block Type="MyObjectBuilder_OxygenGenerator" Subtype="IrrigationSystem" />
+            <Block Type="MyObjectBuilder_OxygenGenerator" Subtype="SmallIrrigationSystem" />
+            <Block Type="MyObjectBuilder_OxygenGenerator" Subtype="SmallWaterSystem" />
+          </Blocks>
+        </BlockTag>
+    </BlockTags>
+</Definitions>
+

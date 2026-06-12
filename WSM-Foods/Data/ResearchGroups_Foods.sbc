@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ResearchGroups>
+        <ResearchGroup xsi:type="ResearchGroup">
+            <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="30" />
+            <Members>
+                <BlockId Type="MyObjectBuilder_FunctionalBlock" Subtype="LargeBlockAlgaeFarm" />
+                <BlockId Type="MyObjectBuilder_FunctionalBlock" Subtype="SmallBlockAlgaeFarm" />
+                <BlockId Type="MyObjectBuilder_FunctionalBlock" Subtype="LargeBlockAlgaeFarmReskin" />
+                <BlockId Type="MyObjectBuilder_FunctionalBlock" Subtype="SmallBlockAlgaeFarmReskin" />
+            </Members>
+        </ResearchGroup>
+        <ResearchGroup xsi:type="ResearchGroup">
+            <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="31" />
+            <Members>
+                <BlockId Type="MyObjectBuilder_Assembler" Subtype="FoodProcessor" />
+                <BlockId Type="MyObjectBuilder_Assembler" Subtype="SmallFoodProcessor" />
+            </Members>
+        </ResearchGroup>
+    </ResearchGroups>
+</Definitions>

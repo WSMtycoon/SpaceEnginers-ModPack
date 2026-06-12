@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<BlockPositions>
+		<!-- Row 17 -->
+		<BlockPosition>
+			<Name>SmallFoodProcessor</Name>
+			<Position>
+				<X>4</X>
+				<Y>17</Y>
+			</Position>
+		</BlockPosition>
+		<BlockPosition>
+			<Name>AlgaeFarm</Name>
+			<Position>
+				<X>5</X>
+				<Y>17</Y>
+			</Position>
+		</BlockPosition>
+		<BlockPosition>
+			<Name>AlgaeFarmReskin</Name>
+			<Position>
+				<X>6</X>
+				<Y>17</Y>
+			</Position>
+		</BlockPosition>
+	</BlockPositions>
+</Definitions>
