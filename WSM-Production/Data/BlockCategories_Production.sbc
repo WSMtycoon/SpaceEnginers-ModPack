@@ -46,30 +46,5 @@
 				<string>OxygenFarm/SmallOxygenFarmReskin</string>
 			</ItemIds>
 		</Category>
-		<Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition"> <!-- Apex Survival Pack -->
-			<Id>
-				<TypeId>GuiBlockCategoryDefinition</TypeId>
-				<SubtypeId/>
-			</Id>
-			<DisplayName>DisplayName_Category_DLC_ApexSurvival</DisplayName>
-			<Name>Section2_DLC_ApexSurvival</Name>
-			<StrictSearch>true</StrictSearch>
-			<ItemIds>
-				<string>OxygenFarm/SmallOxygenFarmReskin</string>
-			</ItemIds>
-		</Category>
-		<!-- DLC Categories -->
-		<Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition"> <!-- All DLC Items -->
-			<Id>
-				<TypeId>GuiBlockCategoryDefinition</TypeId>
-				<SubtypeId>DLC</SubtypeId>
-			</Id>
-			<DisplayName>DisplayName_Category_DLCBlocks</DisplayName>
-			<Name>Section2_DLC</Name>
-			<StrictSearch>true</StrictSearch>
-			<ItemIds>
-				<string>OxygenFarm/SmallOxygenFarmReskin</string>
-			</ItemIds>
-		</Category>
 	</CategoryClasses>
 </Definitions>
